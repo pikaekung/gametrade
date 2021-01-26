@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+
+import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
 
 // Models
 import { SignupWithEmail } from '../models/signup.model';
@@ -33,6 +36,10 @@ export class AuthService {
 
     public logout(): void {
         this.firebaseAuth.signOut();
+    }
+
+    public getCurrentUser(): Observable<firebase.User> {
+        return this.firebaseAuth.user;
     }
 
 }

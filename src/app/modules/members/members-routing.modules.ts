@@ -23,8 +23,8 @@ const routes: Routes = [
     {
         path: ':id',
         component: ProfileComponent,
-        canActivate: [AngularFireAuthGuard],
-        data: { authGuardPipe: belongsToAccount }
+        // canActivate: [AngularFireAuthGuard],
+        // data: { authGuardPipe: belongsToAccount }
     }
 ];
 

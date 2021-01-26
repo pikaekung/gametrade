@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
+import firebase from 'firebase/app';
+
+import { AuthService } from './services/auth.service';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -7,9 +10,17 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AppComponent {
     title = 'Game Trade';
+    public user: firebase.User;
 
     constructor(
-        public auth: AngularFireAuth
+        private authService: AuthService
     ) {
+        this.getCurrentUser();
     }
+
+    private getCurrentUser(): void {
+        this.authService.getCurrentUser()
+            .subscribe((user) => this.user = user);
+    }
+
 }
