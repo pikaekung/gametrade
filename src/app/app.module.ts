@@ -15,22 +15,22 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        AppRoutingModule,
 
-    // Third Parties
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,    
+        // Third Parties
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
 
-    // Site Modules
-    ProductsModule,
-    MembersModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+        // Site Modules
+        ProductsModule,
+        MembersModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
