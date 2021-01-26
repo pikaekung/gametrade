@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductModule } from './product/product.module';
-import { MemberModule } from './member/member.module';
+
+// Modules
+import { ProductsModule } from './modules/products/products.module';
+import { MembersModule } from './modules/members/members.module'
 
 @NgModule({
   declarations: [
@@ -13,8 +15,8 @@ import { MemberModule } from './member/member.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductModule,
-    MemberModule
+    ProductsModule,
+    MembersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
