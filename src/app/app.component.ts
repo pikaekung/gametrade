@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import firebase from 'firebase/app';
 
 import { AuthService } from './services/auth.service';

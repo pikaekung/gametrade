@@ -42,4 +42,13 @@ export class AuthService {
         return this.firebaseAuth.user;
     }
 
+    public updateUserProfile(name: string): void {
+        this.getCurrentUser()
+            .subscribe((user) => {
+                user.updateProfile({
+                    displayName: name,
+                });
+            });
+    }
+
 }

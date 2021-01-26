@@ -1,1 +1,29 @@
-<p>profile works!</p>
+<div>
+    <h1>PROFILE</h1>
+    <!-- Display Profile -->
+    <ul *ngIf="user && !isEditorMode">
+        <li>Photo: {{ user.photoURL }}</li>
+        <li>Display Name: {{ user.displayName }}</li>
+        <li>Email: {{ user.email }}</li>
+    </ul>
+    <!-- Edit Profile -->
+    <div *ngIf="isEditorMode" id="editProfile">
+        <form (ngSubmit)="onUpdateProfile()">
+            <div class="form-group">
+                <label for="displayName">Display Name:</label>
+                <input
+                    [(ngModel)]="displayName"
+                    type="text"
+                    class="form-control"
+                    id="displayName"
+                    required
+                    name="displayName"
+                />
+            </div>
+            <div class="form-group">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+    <a *ngIf="!isEditorMode" (click)="isEditorMode = true">Edit Profile</a>
+</div>
