@@ -1,0 +1,15 @@
+#product-list {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+@media screen and (max-width: 575px) {
+    #product-list {
+        li {
+            width: 366px;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+        }
+    }
+}
