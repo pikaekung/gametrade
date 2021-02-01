@@ -4,8 +4,8 @@ import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo } from '@a
 
 // Pages
 import { SigninComponent } from './pages/signin/signin.component';
-import { SignupComponent } from './signup/signup.component';
-import { ProfileComponent } from './profile/profile.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);

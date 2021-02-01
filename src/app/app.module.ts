@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 // Modules
 import { ProductsModule } from './modules/products/products.module';
 import { MembersModule } from './modules/members/members.module';
+// Shared
+import { SharedModule } from './shared/shared.module';
 
 // Third Parties
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -16,7 +18,7 @@ import { environment } from 'src/environments/environment';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -28,7 +30,8 @@ import { environment } from 'src/environments/environment';
 
         // Site Modules
         ProductsModule,
-        MembersModule
+        MembersModule,
+        SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]
