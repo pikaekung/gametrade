@@ -7,8 +7,8 @@ export const environment = {
   firebase: {
     apiKey: 'AIzaSyAcoptGvevAfMAO3VvcN3h-yuRcqhsMGlw',
     authDomain: 'xxxxxxxxxxxxxxxxxxxxxxxx',
-    databaseURL: 'xxxxxxxxxxxxxxxxxxxxxxxx',
-    projectId: '28229637349',
+    databaseURL: 'https://gametrade-b458f-default-rtdb.firebaseio.com/',
+    projectId: 'gametrade-b458f',
     storageBucket: 'xxxxxxxx',
     messagingSenderId: 'xxxxxx',
     appId: 'xxxxx',

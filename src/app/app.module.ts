@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 // Third Parties
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from 'src/environments/environment';
 
@@ -27,6 +28,7 @@ import { environment } from 'src/environments/environment';
         // Third Parties
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
+        AngularFirestoreModule,
 
         // Site Modules
         ProductsModule,
