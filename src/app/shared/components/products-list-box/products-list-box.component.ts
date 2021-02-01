@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { QuerySnapshot } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 
 // Models
 import { Product } from 'src/app/models/product.model';
@@ -21,6 +19,10 @@ export class ProductsListBoxComponent implements OnInit {
 
     ngOnInit(): void {
         // this.addProduct();
+        this.getProductList();
+    }
+
+    private getProductList(): void {
         this.productService
             .getProductList()
             .subscribe((querySnapshot) => {
@@ -29,9 +31,8 @@ export class ProductsListBoxComponent implements OnInit {
     }
 
     private addProduct(): void {
-        const product = {
-            id: '',
-            title: 'ขาย !! Ps4 Pro 1TB บอร์ด 7106B !!!',
+        const product: Product = {
+            title: 'ซื้อ !! Ps4 Pro 1TB บอร์ด 7106B !!!',
             description: 'ประกันใจ 15 วัน สิ่งที่ท่านจะได้รับต่อไปนี้',
             productTypesId: 1,
             negotiate: true,
@@ -41,19 +42,6 @@ export class ProductsListBoxComponent implements OnInit {
         };
 
         this.productService.addProduct(product);
-
-        const product2 = {
-            id: '',
-            title: '2ขาย !! Ps4 Pro 1TB บอร์ด 7106B !!!',
-            description: 'ประกันใจ 15 วัน สิ่งที่ท่านจะได้รับต่อไปนี้',
-            productTypesId: 1,
-            negotiate: true,
-            createdAt: new Date(),
-            createdByMemberId: 1,
-            acceptExchange: true
-        };
-
-        this.productService.addProduct(product2);
     }
 
 }

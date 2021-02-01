@@ -1,14 +1,20 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { HomepageComponent } from './shared/pages/homepage/homepage.component';
 
 const routes: Routes = [
   {
-    path: 'products',
+    path: 'product',
     loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
   },
   {
-    path: 'members',
+    path: 'member',
     loadChildren: () => import('./modules/members/members.module').then(m => m.MembersModule)
+  },
+  {
+    path: '**',
+    component: HomepageComponent
   }
 ];
 

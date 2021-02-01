@@ -1,19 +1,9 @@
 <h1>ประกาศ ซื้อ - ขาย เกม</h1>
 <ul>
-    <li>
-        <a href="">
-            00002 - ขาย !! Ps4 Pro บอร์ด 7218 ( มั่ง ) Limited Kingdom Hearts 3
-            (ประกันใจ 15 วัน) January 27 at 2.30pm
-        </a>
-    </li>
-    <li>
-        <a href="">
-            00001 - ของเข้ามานิดหน่อย แต่...ไม่กล้าขายเลย
-            เพราะแผ่นมีรอยเยอะพอควร ถ้าสำหรับคนเอาไปเล่นเท่านั้น
-            สนใจติดต่อมาได้ครับ ขายราคาถูกๆครับ 100-800 ย้ำนะครับ
-            คนเอาไปเล่นเท่านั้น เอาไปขายต่อไม่แนะนำเด็ด January 27 at 2.30pm
+    <li *ngFor="let product of products">
+        <a [routerLink]="['/product', product.createdAt?.toMillis()]">
+            <span>{{ product.createdAt?.toMillis() }} - </span>
+            <span> {{ product.title }}</span>
         </a>
     </li>
 </ul>
-
-{{ products | json }}

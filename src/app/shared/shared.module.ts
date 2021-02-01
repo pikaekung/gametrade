@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // Pages
 import { HomepageComponent } from './pages/homepage/homepage.component';
@@ -22,7 +22,11 @@ import { ProductsListBoxComponent } from './components/products-list-box/product
     ],
     imports: [
         CommonModule,
+        RouterModule
     ],
-    exports: [HomepageComponent]
+    exports: [
+        HomepageComponent,
+        HeaderComponent
+    ]
 })
 export class SharedModule { }
