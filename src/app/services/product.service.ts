@@ -12,6 +12,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
     protected productDocumentKey = 'products';
+    protected fileDirectorPath = '/products/';
 
     constructor(
         private firestoreService: AngularFirestore,
@@ -29,12 +30,16 @@ export class ProductService {
         return true;
     }
 
-    public fileRef(filePath): AngularFireStorageReference {
-        return this.storageService.ref(filePath);
+    public fileRef(filePath: string): AngularFireStorageReference {
+        return this.storageService.ref(this.fileDirectorPath + filePath);
     }
 
     public fileUpload(filePath, file): AngularFireUploadTask {
-        return this.storageService.upload(filePath, file);
+        return this.storageService.upload(this.fileDirectorPath + filePath, file);
+    }
+
+    public getFile(filePath: string): AngularFireStorageReference {
+        return this.storageService.ref(this.fileDirectorPath + filePath);
     }
 
     public getProductList(): Observable<QuerySnapshot<Product>> {

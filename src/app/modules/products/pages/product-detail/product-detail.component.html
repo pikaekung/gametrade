@@ -1,5 +1,9 @@
 <h1>product-detail works!</h1>
 <div *ngIf="product">
+    <figure *ngFor="let img of productFileURL">
+        <img class="product-image" [src]="img" alt="" />
+    </figure>
+    <hr />
     <span>title: {{ product.title }}</span>
     <br />
     <span>description: {{ product.description }}</span>

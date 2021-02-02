@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 // Models
 import { Product } from 'src/app/models/product.model';
@@ -15,6 +16,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailComponent implements OnInit {
     private productTimestamp: string;
     public product: Product;
+    public productFileURL: string[] = [];
 
     constructor(
         private route: ActivatedRoute,
@@ -35,7 +37,19 @@ export class ProductDetailComponent implements OnInit {
             .getProductDetail(timeStamp)
             .subscribe((querySnapshot) => {
                 querySnapshot.docs.map(doc => this.product = doc.data());
+                this.getProductFileURL(this.product.file);
             });
+    }
+
+    private getProductFileURL(filePath: string[]): void {
+        filePath.map(file => {
+            // console.log('map' + file);
+            const ref = this.productService.getFile(file);
+            ref.getDownloadURL()
+                .subscribe(url => this.productFileURL.push(url));
+            console.log(this.productFileURL);
+        });
+
     }
 
 }
