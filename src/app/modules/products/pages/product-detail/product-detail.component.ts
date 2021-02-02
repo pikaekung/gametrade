@@ -42,12 +42,14 @@ export class ProductDetailComponent implements OnInit {
     }
 
     private getProductFileURL(filePath: string[]): void {
+        if (filePath === undefined) {
+            return;
+        }
+
         filePath.map(file => {
-            // console.log('map' + file);
             const ref = this.productService.getFile(file);
             ref.getDownloadURL()
                 .subscribe(url => this.productFileURL.push(url));
-            console.log(this.productFileURL);
         });
 
     }

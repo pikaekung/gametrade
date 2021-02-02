@@ -1,8 +1,4 @@
 <div class="content" role="main">
-    <div class="card-container">
-        <app-products-list-box></app-products-list-box>
-    </div>
-
     <!-- Highlight Card -->
     <div class="card highlight-card card-small">
         <a class="font-white" [routerLink]="['/product', 'new']">
@@ -69,6 +65,10 @@
                 />
             </svg>
         </a>
+    </div>
+
+    <div class="card-container">
+        <app-products-list-box></app-products-list-box>
     </div>
 
     <!-- Resources -->
