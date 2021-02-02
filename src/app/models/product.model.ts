@@ -6,4 +6,5 @@ export interface Product {
     createdAt: Date;
     createdByMemberId: number;
     acceptExchange: boolean;
+    file?: string[];
 }

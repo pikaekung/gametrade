@@ -9,7 +9,7 @@ export const environment = {
     authDomain: 'xxxxxxxxxxxxxxxxxxxxxxxx',
     databaseURL: 'https://gametrade-b458f-default-rtdb.firebaseio.com/',
     projectId: 'gametrade-b458f',
-    storageBucket: 'xxxxxxxx',
+    storageBucket: 'gs://gametrade-b458f.appspot.com',
     messagingSenderId: 'xxxxxx',
     appId: 'xxxxx',
     measurementId: 'xxxxxxxxxxxxxxxx'

@@ -1,0 +1,46 @@
+<h1>ประกาศขายเกม</h1>
+<input type="file" (change)="uploadFile($event)" />
+<div>{{ uploadPercent | async }}</div>
+<a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+<hr />
+<form (ngSubmit)="onAddProduct()">
+    <div class="form-group">
+        <label for="title">หัวข้อการขาย:</label>
+        <input
+            [(ngModel)]="form.title"
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            name="title"
+        />
+    </div>
+    <div class="form-group">
+        <label for="description">รายละเอียด:</label>
+        <textarea
+            [(ngModel)]="form.description"
+            class="form-control"
+            id="textarea"
+            name="textarea"
+        ></textarea>
+    </div>
+    <div class="form-group">
+        <label for="negotiate">สามารถต่อรองได้:</label>
+        <input
+            [(ngModel)]="form.negotiate"
+            type="checkbox"
+            id="negotiate"
+            name="negotiate"
+        />
+        <label for="acceptExchange">สามารเจรจาเพื่อแลกเปลี่ยนได้:</label>
+        <input
+            [(ngModel)]="form.acceptExchange"
+            type="checkbox"
+            id="acceptExchange"
+            name="acceptExchange"
+        />
+    </div>
+    <div class="form-group">
+        <button type="submit">เปิดขาย</button>
+    </div>
+</form>

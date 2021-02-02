@@ -1,19 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QuerySnapshot } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask, BUCKET } from '@angular/fire/storage';
 import firebase from 'firebase/app';
 
 // Models
 import { Product } from '../models/product.model';
-
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ProductService {
     protected productDocumentKey = 'products';
+
     constructor(
-        private firestoreService: AngularFirestore
+        private firestoreService: AngularFirestore,
+        private storageService: AngularFireStorage
     ) {
     }
 
@@ -27,9 +29,17 @@ export class ProductService {
         return true;
     }
 
+    public fileRef(filePath): AngularFireStorageReference {
+        return this.storageService.ref(filePath);
+    }
+
+    public fileUpload(filePath, file): AngularFireUploadTask {
+        return this.storageService.upload(filePath, file);
+    }
+
     public getProductList(): Observable<QuerySnapshot<Product>> {
         return this.firestoreService
-            .collection<Product>(this.productDocumentKey, ref => ref.orderBy('createdAt'))
+            .collection<Product>(this.productDocumentKey, ref => ref.orderBy('createdAt', 'desc'))
             .get();
     }
 
