@@ -4,6 +4,8 @@
         <img class="product-image" [src]="img" alt="" />
     </figure>
     <hr />
+    <span>{{ product.createdAt | date: "short" }}</span>
+    <br />
     <span>title: {{ product.title }}</span>
     <br />
     <span>description: {{ product.description }}</span>

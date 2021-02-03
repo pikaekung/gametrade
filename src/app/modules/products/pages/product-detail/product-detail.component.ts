@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import firebase from 'firebase/app';
 
 // Models
 import { Product } from 'src/app/models/product.model';
@@ -37,6 +37,7 @@ export class ProductDetailComponent implements OnInit {
             .getProductDetail(timeStamp)
             .subscribe((querySnapshot) => {
                 querySnapshot.docs.map(doc => this.product = doc.data());
+                this.product.createdAt = firebase.firestore.Timestamp.fromMillis(+timeStamp).toDate();
                 this.getProductFileURL(this.product.file);
             });
     }

@@ -2,7 +2,7 @@
 <ul id="product-list">
     <li *ngFor="let product of products">
         <a [routerLink]="['/product', product.createdAt?.toMillis()]">
-            <span>{{ product.createdAt?.toMillis() }} - </span>
+            <span>{{ product.createdAt.toDate() | date: "short" }} - </span>
             <span> {{ product.title }}</span>
         </a>
     </li>
