@@ -24,4 +24,8 @@ export class HeaderComponent implements OnInit {
             .subscribe((user) => this.user = user);
     }
 
+    public logout(): void {
+        this.authService.logout();
+    }
+
 }

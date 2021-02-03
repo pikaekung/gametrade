@@ -1,1 +1,29 @@
-<p>signin works!</p>
+<form (ngSubmit)="onSubmit()">
+    <h1>SIGNIN</h1>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+            [(ngModel)]="email"
+            type="email"
+            class="form-control"
+            id="email"
+            required
+            name="email"
+        />
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+            [(ngModel)]="password"
+            type="password"
+            class="form-control"
+            id="password"
+            required
+            name="password"
+        />
+    </div>
+    <div class="form-group">
+        <button type="submit">Signin</button>
+    </div>
+    <a [routerLink]="['/member', 'signup']">สมัครผู้ใช้ใหม่</a>
+</form>
