@@ -7,9 +7,14 @@
     />
     <a id="link-gametrade" [routerLink]="['/']">GameTrade</a>
     <div class="spacer"></div>
-    <div>
+    <div class="userBar">
         <span *ngIf="user">
-            <span>Hello {{ user.displayName || user.email }}!</span>
+            <span (click)="logout()"
+                >Hello {{ user.displayName || user.email }}!</span
+            >
+        </span>
+        <span *ngIf="!user">
+            <a [routerLink]="['/member', 'signin']">Signin</a>
         </span>
         <!-- <a
             aria-label="Angular on twitter"

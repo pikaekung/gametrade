@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 
 // Models
 import { SignupWithEmail } from '../models/signup.model';
+import { SigninWithEmail } from '../models/signin.model';
 
 @Injectable({
     providedIn: 'root'
@@ -26,8 +27,8 @@ export class AuthService {
             .catch((error) => console.log(error));
     }
 
-    public loginWithEmail(email: string, password: string): Promise<void> {
-        return this.firebaseAuth.signInWithEmailAndPassword(email, password)
+    public loginWithEmail(model: SigninWithEmail): Promise<void> {
+        return this.firebaseAuth.signInWithEmailAndPassword(model.email, model.password)
             .then((result) => {
                 console.log(result);
             })
