@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-
+import { Router } from "@angular/router"
 
 // Models
 import { Product } from 'src/app/models/product.model';
@@ -29,9 +29,10 @@ export class AddProductComponent implements OnInit {
     };
 
     public uploadPercent: Observable<number>;
-    public downloadURL: Observable<string>;
+    public downloadURL: string[] = [];
 
     constructor(
+        private router: Router,
         private productService: ProductService
     ) {
     }
@@ -51,7 +52,10 @@ export class AddProductComponent implements OnInit {
         // get notified when the download URL is available
         task.snapshotChanges()
             .pipe(
-                finalize(() => this.downloadURL = fileRef.getDownloadURL())
+                finalize(() => {
+                    fileRef.getDownloadURL()
+                        .subscribe((imageURL) => this.downloadURL.push(imageURL));
+                })
             )
             .subscribe();
 
@@ -62,7 +66,10 @@ export class AddProductComponent implements OnInit {
     public onAddProduct(): void {
         this.form.createdAt = new Date();
         this.iProduct = this.form;
-        this.productService.addProduct(this.iProduct);
+        const isProductAddSuccess = this.productService.addProduct(this.iProduct);
+        if (isProductAddSuccess) {
+            this.router.navigate(['/']);
+        }
     }
 
 }

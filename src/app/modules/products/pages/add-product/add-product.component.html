@@ -1,7 +1,9 @@
 <h1>ประกาศขายเกม</h1>
 <input type="file" (change)="uploadFile($event)" />
 <div>{{ uploadPercent | async }}</div>
-<a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+<figure *ngFor="let url of downloadURL">
+    <img class="product-image" [src]="url" alt="" />
+</figure>
 <hr />
 <form (ngSubmit)="onAddProduct()">
     <div class="form-group">
