@@ -1,6 +1,12 @@
 #product-list {
     list-style-type: none;
     padding-left: 0px;
+
+    li > a {
+        font-family: "Pridi", serif;
+        font-weight: 200;
+        line-height: 1rem;
+    }
 }
 
 @media screen and (max-width: 575px) {
