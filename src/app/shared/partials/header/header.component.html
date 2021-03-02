@@ -10,7 +10,7 @@
     <div class="userBar">
         <span *ngIf="user">
             <span (click)="logout()"
-                >Hello {{ user.displayName || user.email }}!</span
+                >สวัสดี {{ user.displayName || user.email }}!</span
             >
         </span>
         <span *ngIf="!user">

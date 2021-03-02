@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 // Services
 import { AuthService } from 'src/app/services/auth.service';
 
 // Models
 import { SigninWithEmail } from 'src/app/models/signin.model';
+
 
 @Component({
     selector: 'app-signin',
@@ -18,7 +19,8 @@ export class SigninComponent implements OnInit {
     public password: string;
 
     constructor(
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -32,7 +34,13 @@ export class SigninComponent implements OnInit {
         }
 
         let auth = this.authService.loginWithEmail(this.model);
-        console.log(auth);
+        if (auth) {
+            this.redirectToHome();
+        }
+    }
+
+    private redirectToHome(): void {
+        this.router.navigate(['/']);
     }
 
 }

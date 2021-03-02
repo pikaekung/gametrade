@@ -1,29 +1,35 @@
-<form (ngSubmit)="onSubmit()">
-    <h1>SIGNIN</h1>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input
-            [(ngModel)]="email"
-            type="email"
-            class="form-control"
-            id="email"
-            required
-            name="email"
-        />
-    </div>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input
-            [(ngModel)]="password"
-            type="password"
-            class="form-control"
-            id="password"
-            required
-            name="password"
-        />
-    </div>
-    <div class="form-group">
-        <button type="submit">Signin</button>
-    </div>
-    <a [routerLink]="['/member', 'signup']">สมัครผู้ใช้ใหม่</a>
-</form>
+<div id="signin-container">
+    <form (ngSubmit)="onSubmit()">
+        <!-- <h1>เข้าสู่ระบบ</h1> -->
+        <div class="form-group">
+            <label for="email">อีเมล :</label>
+            <input
+                [(ngModel)]="email"
+                type="email"
+                class="form-control"
+                id="email"
+                required
+                name="email"
+                placeholder="อีเมล"
+                required
+            />
+        </div>
+        <div class="form-group">
+            <label for="password">พาสเวิด :</label>
+            <input
+                [(ngModel)]="password"
+                type="password"
+                class="form-control"
+                id="password"
+                required
+                name="password"
+                placeholder="รหัสผ่าน"
+                required
+            />
+        </div>
+        <div id="submit-group" class="form-group">
+            <button id="signin-btn" type="submit">เข้าสู่ระบบ</button>
+            <a [routerLink]="['/member', 'signup']">สมัครผู้ใช้ใหม่</a>
+        </div>
+    </form>
+</div>
